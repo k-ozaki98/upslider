@@ -1,0 +1,456 @@
+@charset "utf-8";
+
+@use '../lib/global'as g;
+@use '../lib/vars'as *;
+
+/*----------------------------------------------------
+
+	各ページの独自モジュールスタイルのCSS。
+
+	【記述ルール】
+	{ ページ名(top, about等) }○○○○
+
+	階層はルートクラスより、三階層までが基本
+	【例】
+	.top-sec .top-sec__ttl span {
+	}
+	※CSSに展開した場合
+
+----------------------------------------------------*/
+
+.contents {
+
+	.section {
+		padding: 7rem 0;
+
+		&__header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 3.7rem;
+			color: #fff;
+			font-weight: bold;
+		}
+
+
+		&__text {
+			text-align: right;
+			font-size: 2.3rem;
+			font-weight: bold;
+		}
+	}
+
+	.section-bg {
+		background-image: url(../img/bg02.svg), url(../img/bg02.svg);
+		background-size: 20rem 30rem;
+    background-position: 0 0, 10rem 15rem;
+		background-repeat: repeat;
+		position: relative;
+	}
+
+	.flex-wrap {
+		display: flex;
+		gap: 3rem;
+	}
+	
+	.mv {
+		width: 100%;
+		img {
+			width: 100%;
+		}
+	}
+
+	.intro {
+		
+		&__wrap {
+			display: flex;
+			justify-content: center;
+			gap: 4.5rem;
+			margin-bottom: 7rem;
+			width: 95%;
+			margin: 0 auto 7rem;
+
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+				flex-direction: column;
+				gap: 2rem;
+			}
+
+		}
+
+		&__text {
+			font-size: 2rem;
+			width: 47rem;
+			font-weight: bold;
+		}
+
+		&__img {
+			width: 35rem;
+		}
+
+		&__btns {
+			display: flex;
+			gap: 4rem;
+
+		}
+
+		&__btn {
+			transition: 0.2s;
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	.product {
+		padding: 0 0 3rem 4rem;
+		border-radius: 10px;
+		background: #fff;
+		display: flex;
+		overflow: hidden;
+		gap: 1rem;
+		margin-bottom: 2rem;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&__wrap {
+			width: 49%;
+			position: relative;
+			z-index: 2;
+		}
+
+		&__header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 2rem;
+			margin-top: 3rem;
+			font-weight: bold;
+		}
+
+		&__ttl {
+			font-size: 4.8rem;
+			margin-right: 3rem;
+		}
+
+		&__text {
+			font-size: 1.8rem;
+			padding-left: 1.7rem;
+			border-left: 1px solid #2d2d2d;
+			white-space: nowrap;
+			span {
+				font-size: 1.2rem;
+			}
+		}
+
+		&__tag {
+			display: flex;
+			gap: 1rem;
+			margin-bottom: 1.5rem;
+			li {
+				display: inline-block;
+				border-radius: 5px;
+				color: #fff;
+				background: #C7161D;
+				font-size: 1.5rem;
+				width: 10rem;
+				text-align: center;
+				padding: 0.7rem 0;
+			}
+		}
+
+		&__right {
+			width: 22rem;
+
+			&.flex-wrap {
+				gap: 2rem;
+			}
+		}
+
+		&__coming {
+			color: #C7161D;
+			border: 3px solid #C7161D;
+			text-align: center;
+			display: block;
+			margin-left: auto;
+			padding: 0.7rem;
+			width: 15rem;
+			margin-left: auto;
+			font-size: 2.2rem;
+			line-height: 1.5;
+		}
+
+		&__label {
+			width: 6rem;
+
+			&.label02 {
+				width: 7.7rem;
+			}
+		}
+	}
+
+	.max-usable {
+		border-top: 1px solid #2d2d2d;
+		border-bottom: 1px solid #2d2d2d;
+		padding: 1.4rem 0;
+		display: flex;
+		align-items: flex-end;
+		gap: 1rem;
+		justify-content: center;
+		width: 22rem;
+		margin-bottom: 3rem;
+		line-height: 1.5;
+
+		&__text {
+			font-size: 1.5rem;
+		}
+
+		&__value {
+			color: #C7161D;
+			font-size: 3.4rem;
+			font-weight: bold;
+
+			span {
+				font-size: 1.6rem;
+			}
+		}
+
+		&__asterisk {
+			font-size: 1.1rem;
+		}
+	}
+
+	.detail-card {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3rem;
+
+		&__item {
+			width: 22rem;
+		}
+
+		&__img {
+			margin-bottom: 1.5rem;
+		}
+
+		&__text {
+			font-size: 1.2rem;
+		}
+	}
+
+	.showcase {
+		display: flex;
+		justify-content: center;
+		gap: 1.7rem;
+		align-items: flex-end;
+		width: 45%;
+
+		&__item {
+			// width: calc(100% / 3);
+		}
+
+		&__img {
+			height: 44.4rem;
+		}
+
+		&__wrap {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 10rem;
+			margin: 0 auto;
+		}
+
+		&__ttl {
+			border-bottom: 1px solid #2d2d2d;
+			width: 100%;
+			text-align: center;
+			padding-bottom: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+		
+	}
+
+	.option {
+		border: 1px solid #C7161D;
+		border-radius: 5px;
+		padding: 1rem 2rem 2.5rem;
+		&__heading {
+			color: #C7161D;
+			text-align: center;
+			font-size: 1.5rem;
+			line-height: 1.5;
+			margin-bottom: 1.5rem;
+			white-space: nowrap;
+		}
+		&__cards {
+			display: flex;
+			justify-content: center;
+			gap: 2rem;
+		}
+
+		&__img {
+			margin-bottom: 1rem;
+		}
+
+		&__text {
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+	}
+
+	.tough {
+		position: relative;
+		&::before {
+			content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+				background: linear-gradient(to right, #7F7576, #33292E);
+				z-index: -1;
+		}
+
+		&__heading {
+			img {
+				width: 33.4rem;
+				height: 7.3rem;
+			}
+		}
+	}
+	.pro {
+		
+		position: relative;
+		&::before {
+			content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+				background: linear-gradient(to right, #DB4F3C, #BE0008);
+				z-index: -1;
+		}
+
+		&__heading {
+			img {
+				width: 25.1rem;
+				height: 7.3rem;
+			}
+		}
+	}
+	.standard {
+		padding-bottom: 4rem;
+		position: relative;
+		&::before {
+			content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+				background: linear-gradient(to right, #D1C2D0, #9C9A9E);
+				z-index: -1;
+		}
+
+		&__heading {
+			img {
+				width: 45.1rem;
+				height: 7.3rem;
+			}
+		}
+
+		.pagetop {
+			text-align: center;
+			margin-top: 4rem;
+			span {
+				font-weight: bold;
+				font-size: 1.5rem;
+				color: #fff;
+				padding: 0 7px;
+				border-left: 2px solid #fff;
+				border-right: 2px solid #fff;
+				cursor: pointer;
+				transition: opacity 0.2s ease;
+
+				&:hover {
+					opacity: 0.7;
+				}
+			}
+		}
+		
+	}
+
+	.movie {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.movie-container {
+		position: relative;
+		width: 100%;
+		padding-top: 56.25%;
+
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.contact {
+		&__heading {
+			width: 40rem;
+			margin: 0 auto 7rem;
+		}
+
+		&__btn {
+			width: 40rem;
+			margin: 0 auto;
+			
+			a {
+				background: #2d2d2d;
+				border: 1px solid #2d2d2d;
+				color: #fff;
+				display: block;
+				text-align: center;
+				padding: 1.8rem 0;
+				font-size: 1.9rem;
+				transition: 0.2s;
+
+				&:hover {
+					color: #2d2d2d;
+					background: #fff;
+				}
+			}
+		}
+	}
+	
+	.footer-bg {
+		background: url(../img/footer-bg.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+
+	.footer {
+		display: flex;
+		flex-direction: column;
+		gap: 3.2rem;
+		align-items: center;
+		justify-content: center;
+		padding: 6rem 0;
+		&__logo {
+			width: 11.8rem;
+		}
+		.copyright {
+			font-size: 1rem;
+			text-align: center;
+		}
+	}
+}

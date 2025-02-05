@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+@use '../lib/global'as g;
+
+/*----------------------------------------------------
+
+	レイアウト設定のファイルです。
+	レイアウトに関する汎用性の高いスタイルをまとめています。
+	基本的には編集することはありません。
+
+	命名規則として、クラス名の頭に
+	l-* (Layoutのl)という接頭辞をつけることを推奨します。
+
+----------------------------------------------------*/
+
+.l-section {
+  margin: 8rem 0;
+
+  @include g.max-screen(g.$bp-sp) {
+    margin: 4rem 0;
+  }
+}
+
+.l-inner {
+  margin: 0 auto;
+  width: g.$inner-width;
+
+  @include g.max-screen(1200px) {
+    width: 90%;
+  }
+
+  @include g.max-screen(g.$bp-sp) {
+    padding: 0 2.4rem;
+    width: 100%;
+  }
+
+  &--sp {
+    @include g.max-screen(g.$bp-sp) {
+      padding: 0;
+    }
+  }
+}
+
+.l-flex {
+  display: flex;
+
+  &--aic {
+    align-items: center;
+  }
+}
+
+.l-pos-relative {
+  position: relative;
+}
+
+.l-pos-center {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.l-clearfix:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.l-left {
+  float: left;
+}
+
+.l-right {
+  float: right;
+}
