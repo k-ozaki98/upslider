@@ -16,6 +16,7 @@
 	}
 	※CSSに展開した場合
 
+
 ----------------------------------------------------*/
 
 .contents {
@@ -30,6 +31,9 @@
 			margin-bottom: 3.7rem;
 			color: #fff;
 			font-weight: bold;
+			@include g.max-screen(g.$bp-sp) {
+				flex-direction: column;
+			}
 		}
 
 
@@ -82,15 +86,28 @@
 			font-size: 2rem;
 			width: 47rem;
 			font-weight: bold;
+
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+			}
 		}
 
 		&__img {
 			width: 35rem;
+
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+			}
 		}
 
 		&__btns {
 			display: flex;
 			gap: 4rem;
+
+			@include g.max-screen(g.$bp-sp) {
+				flex-direction: column;
+				gap: 1.5rem;
+			}
 
 		}
 
@@ -110,6 +127,19 @@
 		overflow: hidden;
 		gap: 1rem;
 		margin-bottom: 2rem;
+		opacity: 0;
+		transform: translateY(30px);
+		transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+		&.is-visible {
+			opacity: 1;
+  		transform: translateY(0)
+		}
+
+		@include g.max-screen(g.$bp-sp) {
+			flex-direction: column;
+			padding: 2rem;
+		}
 
 		&:last-of-type {
 			margin-bottom: 0;
@@ -119,6 +149,9 @@
 			width: 49%;
 			position: relative;
 			z-index: 2;
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+			}
 		}
 
 		&__header {
@@ -163,6 +196,10 @@
 		&__right {
 			width: 22rem;
 
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+			}
+
 			&.flex-wrap {
 				gap: 2rem;
 			}
@@ -179,6 +216,9 @@
 			margin-left: auto;
 			font-size: 2.2rem;
 			line-height: 1.5;
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+			}
 		}
 
 		&__label {
@@ -201,6 +241,10 @@
 		width: 22rem;
 		margin-bottom: 3rem;
 		line-height: 1.5;
+
+		@include g.max-screen(g.$bp-sp) {
+			width: 100%;
+		}
 
 		&__text {
 			font-size: 1.5rem;
@@ -226,8 +270,15 @@
 		grid-template-columns: repeat(2, 1fr);
 		gap: 3rem;
 
+		@include g.max-screen(g.$bp-sp) {
+			gap: 1.5rem;
+		}
+
 		&__item {
 			width: 22rem;
+			@include g.max-screen(g.$bp-sp) {
+				width: auto;
+			}
 		}
 
 		&__img {
@@ -246,12 +297,20 @@
 		align-items: flex-end;
 		width: 45%;
 
+		@include g.max-screen(g.$bp-sp) {
+			width: 100%;
+		}
+
 		&__item {
 			// width: calc(100% / 3);
 		}
 
 		&__img {
 			height: 44.4rem;
+			text-align: center;
+			@include g.max-screen(g.$bp-sp) {
+				height: 20rem;
+			}
 		}
 
 		&__wrap {
@@ -407,11 +466,19 @@
 		&__heading {
 			width: 40rem;
 			margin: 0 auto 7rem;
+
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+			}
 		}
 
 		&__btn {
 			width: 40rem;
 			margin: 0 auto;
+
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+			}
 			
 			a {
 				background: #2d2d2d;

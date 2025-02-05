@@ -5,6 +5,30 @@ import '../styles/style.scss';
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    gsap.utils.toArray('.product').forEach((product, i) => {
+        gsap.set(product, {
+          opacity: 0,
+          y: 50
+        });
+    
+        ScrollTrigger.create({
+          trigger: product,
+          start: 'top 80%',
+          once: true, 
+          onEnter: () => {
+            gsap.to(product, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.15, 
+              ease: 'power2.out'
+            });
+          }
+        });
+      });
+
+
   // YouTubeのIframe API の読み込み
   function loadYouTubeAPI() {
       const tag = document.createElement('script');
