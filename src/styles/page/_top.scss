@@ -61,6 +61,9 @@
 	.mv {
 		aspect-ratio: 16 / 9;
 		position: relative;
+		background: url("../img/mv-bg.jpg") no-repeat;
+		background-size: cover;
+		background-position: center center;
 
 		&__inner {
 			position: relative;
