@@ -45,9 +45,10 @@
 	}
 
 	.section-bg {
-		background-image: url(../img/bg02.svg), url(../img/bg02.svg);
-		background-size: 20rem 30rem;
-    background-position: 0 0, 10rem 15rem;
+		// background-image: url(../img/bg02.svg), url(../img/bg02.svg);
+		background-image: url(../img/bg.png), url(../img/bg.png);
+		background-size: 30rem 20rem;
+    background-position: 0 0, 15rem 10rem;
 		background-repeat: repeat;
 		position: relative;
 	}
@@ -146,7 +147,7 @@
 		}
 
 		&__wrap {
-			width: 49%;
+			width: 45%;
 			position: relative;
 			z-index: 2;
 			@include g.max-screen(g.$bp-sp) {
@@ -357,6 +358,10 @@
 			line-height: 1.5;
 			margin-bottom: 1.5rem;
 			white-space: nowrap;
+
+			@media screen and (max-width: 1200px) {
+				font-size: g.vw-pc(15, 1200);
+			}
 		}
 		&__cards {
 			display: flex;
