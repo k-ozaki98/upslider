@@ -59,8 +59,9 @@
 	}
 
 	.mv {
-		height: 100vh;
+		aspect-ratio: 16 / 9;
 		position: relative;
+
 		&__inner {
 			position: relative;
 			width: 100%;
@@ -68,9 +69,9 @@
 		}
 		&__logo {
 			position: absolute;
-			top: 6rem;
+			top: 3.968253968253968vw;
 			right: 8%;
-			width: 15rem;
+			width: 9.920634920634921vw;
 		}
 		&__product {
 			position: absolute;
@@ -84,10 +85,10 @@
 				max-width: 100%;
 			}
 			.mv-img-product {
-				width: 60rem;
+				width: 39.682539682539684vw;
 				&::after {
 					content: "";
-					width: 60rem;
+					width: 39.682539682539684vw;
 					height: 100%;
 					background: #fff;
 					display: block;
@@ -100,25 +101,25 @@
 				}
 			}
 			.mv-img-copy {
-				width: 38rem;
+				width: 25.132275132275133vw;
 			}
 		}
 		&__lader {
 			position: absolute;
 			bottom: 0;
 			right: 3rem;
-			width: 85rem;
+			width: 56.21693121693122vw;
 		}
 		&__subtitle {
 			position: absolute;
 			left: 13%;
-			width: 53rem;
+			width: 35.05291005291005vw;
 			bottom: 2%;
 		}
 		&__title {
 			position: absolute;
 			left: 0;
-			width: 54rem;
+			width: 35.714285714285715vw;
 			bottom: 30%;
 		}
 	}
