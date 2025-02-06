@@ -29,7 +29,7 @@ body {
   font-size: #{g.$font-size-rem}rem;
   font-family: g.$font-family;
   line-height: g.$line-height;
-  letter-spacing: #{g.$font-size-px * 0.1}px;
+  // letter-spacing: #{g.$font-size-px * 0.01}px;
   @include g.max-screen(g.$bp-sp) {
     font-size: 1.4rem;
   }
