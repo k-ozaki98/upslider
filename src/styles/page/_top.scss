@@ -196,6 +196,10 @@
 		&__right {
 			width: 22rem;
 
+			@media screen and (max-width: 1200px) {
+				width: g.vw-pc(220, 1200);
+			}
+
 			@include g.max-screen(g.$bp-sp) {
 				width: 100%;
 			}
@@ -242,6 +246,10 @@
 		margin-bottom: 3rem;
 		line-height: 1.5;
 
+		@media screen and (max-width: 1200px) {
+			width: g.vw-pc(220, 1200);
+		}
+
 		@include g.max-screen(g.$bp-sp) {
 			width: 100%;
 		}
@@ -276,6 +284,9 @@
 
 		&__item {
 			width: 22rem;
+			@media screen and (max-width: 1200px) {
+				width: g.vw-pc(220, 1200);
+			}
 			@include g.max-screen(g.$bp-sp) {
 				width: auto;
 			}
@@ -308,6 +319,9 @@
 		&__img {
 			height: 44.4rem;
 			text-align: center;
+			@media screen and (max-width: 1200px) {
+				height: g.vw-pc(420, 1200);
+			}
 			@include g.max-screen(g.$bp-sp) {
 				height: 20rem;
 			}
