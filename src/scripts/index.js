@@ -16,12 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
           trigger: product,
           start: 'top 80%',
           once: true, 
+          markers: true,
           onEnter: () => {
             gsap.to(product, {
               opacity: 1,
               y: 0,
-              duration: 0.8,
-              delay: i * 0.15, 
               ease: 'power2.out'
             });
           }
@@ -51,8 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
       }
 
-      console.log('Creating player with video ID:', videoId);
-
       // プレイヤーの作成
       new YT.Player(movieWrap, {
           videoId: videoId,
@@ -66,23 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
               playsinline: 1
           },
           events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange,
               'onError': function(event) {
-                  console.error('YouTube Player Error:', event);
+                  console.error('YouTube Playerエラー:', event);
               }
           }
       });
-  }
-
-  // プレイヤーの準備完了時
-  function onPlayerReady(event) {
-      console.log('Player is ready');
-  }
-
-  // プレイヤーの状態変更時
-  function onPlayerStateChange(event) {
-      console.log('Player state changed:', event.data);
   }
 
   // APIの準備完了時のコールバック

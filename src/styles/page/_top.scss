@@ -57,11 +57,28 @@
 
 	.section-bg {
 		// background-image: url(../img/bg02.svg), url(../img/bg02.svg);
-		background-image: url(../img/bg.png), url(../img/bg.png);
-		background-size: 30rem 20rem;
-    background-position: 0 0, 15rem 10rem;
-		background-repeat: repeat;
+		overflow: hidden;
 		position: relative;
+		&::after {
+			content: "";
+			width: 400%;
+			height: 400%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(-30deg);
+			background-image: url(../img/bg-logo.png), url(../img/bg-logo.png);
+			background-size: 30rem 20rem;
+			background-position: 0 0, 15rem 10rem;
+			background-repeat: repeat;
+			z-index: -1;
+			@include g.max-screen(g.$bp-sp) {
+				width: 1000%;
+				transform: translate(-50%, -50%) rotate(-20deg);
+				background-size: 20rem 15rem;
+			background-position: 0 0, 10rem 7.5rem;
+			}
+		}
 	}
 
 	.flex-wrap {
@@ -70,6 +87,10 @@
 		position: relative;
 
 		.wrap {
+			width: 22rem;
+			@media screen and (max-width: 1200px) {
+				width: g.vw-pc(220, 1200);
+			}
 			@include g.max-screen(g.$bp-sp) {
 				width: 100%;
 			}
@@ -159,7 +180,7 @@
 		margin-bottom: 2rem;
 		opacity: 0;
 		transform: translateY(30px);
-		transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+		transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 
 		&.is-visible {
 			opacity: 1;
@@ -176,7 +197,7 @@
 		}
 
 		&__wrap {
-			width: 45%;
+			width: 49%;
 			position: relative;
 			z-index: 2;
 			@include g.max-screen(g.$bp-sp) {
