@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     tl.from(mvCopy, { opacity: 0, x: -10, duration: .2 });
     tl.from(mvTitle, { opacity: 0, x: -10, duration: .2 });
     tl.from(mvSubTitle, { height: 0, duration: .2, });
-    tl.from(mvLader, { opacity: 0, rotate: 5 });
+    tl.from(mvLader, { opacity: 0 });
 
     tl.add(() => mvProduct.classList.add("is-active"))
         .to(mvCopy, { opacity: 1, x: 0 }, "-=0.5")
         .to(mvTitle, { opacity: 1, x: 0 }, "-=0.3")
         .to(mvSubTitle, { height: "auto", ease: "expo.in" }, "-=0.5")
-        .to(mvLader, { opacity: 1, duration: .3, rotate: 0 }, "-=0.1")
+        .to(mvLader, { opacity: 1, duration: .3 }, "-=0.1")
 
     // YouTubeのIframe API の読み込み
     function loadYouTubeAPI() {
