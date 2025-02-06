@@ -72,6 +72,10 @@
 			top: 3.968253968253968vw;
 			right: 8%;
 			width: 9.920634920634921vw;
+			z-index: 100;
+			a {
+				cursor: pointer;
+			}
 		}
 		&__product {
 			position: absolute;
