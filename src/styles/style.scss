@@ -10,28 +10,27 @@
 /*--------------------------
 	Base
 --------------------------*/
-@use './base/html5doctor.scss';
-@use './base/reset.scss';
-@use './base/base.scss';
+@use "./base/html5doctor.scss";
+@use "./base/reset.scss";
+@use "./base/base.scss";
 
 /*--------------------------
 	utility
 --------------------------*/
-@use './utility/utility.scss';
+@use "./utility/utility.scss";
 
 /*--------------------------
 	Layout
 --------------------------*/
 
-@use './utility/layout.scss';
-
+@use "./utility/layout.scss";
 
 /*--------------------------
 	page
 --------------------------*/
-@use './page/top.scss';
+@use "./page/top.scss";
 
 /*--------------------------
 	state
 --------------------------*/
-@use './utility/state.scss';
+@use "./utility/state.scss";
