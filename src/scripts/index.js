@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             trigger: product,
             start: 'top 80%',
             once: true,
-            markers: true,
+            // markers: true,
             onEnter: () => {
                 gsap.to(product, {
                     opacity: 1,
