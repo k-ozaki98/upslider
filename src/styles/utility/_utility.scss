@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@use '../lib/global' as g;
+@use "../lib/global" as g;
 
 /*----------------------------------------------------
 
@@ -68,7 +68,7 @@
     position: relative;
     padding-left: 1.3em;
     &::before {
-      content: '・';
+      content: "・";
       display: inline-block;
       position: absolute;
       top: 0;
@@ -78,14 +78,14 @@
   &--asterisk {
     > li {
       &::before {
-        content: '※';
+        content: "※";
       }
     }
   }
   &--disc {
     > li {
       &::before {
-        content: '●';
+        content: "●";
         color: #ccc;
       }
     }
@@ -93,7 +93,7 @@
   &--disc-red {
     > li {
       &::before {
-        content: '●';
+        content: "●";
         color: g.$main-color;
       }
     }
@@ -102,7 +102,7 @@
     > li {
       counter-increment: number;
       &::before {
-        content: counter(number) '.';
+        content: counter(number) ".";
       }
     }
   }
@@ -110,13 +110,11 @@
     > li {
       counter-increment: number;
       &::before {
-        content: counter(number) '.';
+        content: counter(number) ".";
         color: g.$main-color;
       }
     }
   }
-
-
 }
 
 .u-align-l {
@@ -335,4 +333,8 @@ $i: 120; // padding marginの最大値
   .u-mt-40-negative-sp {
     margin-top: -4rem !important;
   }
+}
+
+.font-bold {
+  font-weight: 600;
 }
