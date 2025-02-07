@@ -7,6 +7,7 @@ const tl = gsap.timeline();
 const mvProduct = document.querySelector("#mv-img-product");
 const mvCopy = document.querySelector("#mv-img-copy");
 const mvTitle = document.querySelector("#mv-title");
+const mvTitleSp = document.querySelector("#mv-title-sp");
 const mvSubTitle = document.querySelector("#mv-subtitle");
 const mvLader = document.querySelector("#mv-lader");
 
@@ -39,11 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
     tl.from(mvSubTitle, { height: 0, duration: .2, });
     tl.from(mvLader, { opacity: 0 });
 
-    tl.add(() => mvProduct.classList.add("is-active"), 0)
-        .to(mvCopy, { opacity: 1, x: 0 }, "-=0.5")
-        .to(mvTitle, { opacity: 1, x: 0 }, "-=0.3")
-        .to(mvSubTitle, { height: "auto", ease: "expo.in" }, "-=0.5")
-        .to(mvLader, { opacity: 1, duration: .3 }, "-=0.1")
+    if (window.innerWidth > 767) { // SPサイズでは適用しない
+        tl.add(() => mvProduct.classList.add("is-active"), 0)
+            .to(mvCopy, { opacity: 1, x: 0 }, "-=0.5")
+            .to(mvTitle, { opacity: 1, x: 0 }, "-=0.3")
+            .to(mvSubTitle, { height: "auto", ease: "expo.in" }, "-=0.5")
+            .to(mvLader, { opacity: 1, duration: .3 }, "-=0.1");
+    }
+    if (window.innerWidth <= 767) { // SPサイズ用のアニメーション
+        tl.from(mvProduct, { opacity: 0, y: 10, duration: 0.3 }, 0)
+            .from(mvTitleSp, { opacity: 0, duration: 0.8, y: -10 }, 0)
+            .to(mvProduct, { opacity: 1, y: 0, duration: 0.3 })
+            .to(mvCopy, { opacity: 1, x: 0 }, "-=0.2")
+            .to(mvLader, { opacity: 1, duration: .3 }, "-=0.1")
+            .to(mvTitleSp, { opacity: 1, y: 0, }, "+=0.1")
+    }
 
 
     // YouTubeのIframe API の読み込み

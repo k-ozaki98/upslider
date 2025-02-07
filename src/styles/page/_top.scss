@@ -102,13 +102,14 @@
 	.mv {
 		aspect-ratio: 16 / 9;
 		position: relative;
-		background: url("../img/mv-bg.jpg") no-repeat;
+		background-image: url("../img/mv-bg.jpg");
+		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center center;
+		overflow: hidden;
 
 		#mv-img-copy,
 		#mv-title,
-		#mv-subtitle,
 		#mv-lader {
 			opacity: 0;
 		}
@@ -166,6 +167,7 @@
 			width: 56.21693121693122vw;
 		}
 		&__subtitle {
+			height: 0;
 			position: absolute;
 			left: 13%;
 			width: 35.05291005291005vw;
@@ -176,6 +178,50 @@
 			left: 0;
 			width: 35.714285714285715vw;
 			bottom: 30%;
+		}
+		&__title--sp {
+			display: none;
+			opacity: 0;
+		}
+		@include g.max-screen(g.$bp-sp) {
+			aspect-ratio: auto;
+			height: 161.53846153846155vw;
+			background-image: url("../img/mv_bg_sp.jpg");
+			&__logo {
+				width: 8rem;
+			}
+			&__title {
+				display: none;
+			}
+			&__subtitle {
+				display: none;
+			}
+			&__lader {
+				width: 120%;
+				bottom: 0;
+				right: 0;
+			}
+			&__product {
+				flex-direction: column;
+				left: 8%;
+				top: 4rem;
+			}
+			.mv-img-product {
+				width: 20rem;
+				&::after {
+					content: none;
+				}
+			}
+			.mv-img-copy {
+				width: 15rem;
+			}
+			.mv__title--sp {
+				display: block;
+				position: absolute;
+				bottom: -2%;
+				left: -4%;
+				width: 110%;
+			}
 		}
 	}
 
