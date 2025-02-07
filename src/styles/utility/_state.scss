@@ -34,14 +34,14 @@
 // スマホのみ
 .is-Sp {
   @include g.min-screen(g.$bp-sp + 1) {
-    display: none;
+    display: none!important;
   }
 }
 
 // PC タブレットのみ
 .is-Pc_Tab {
   @include g.max-screen(g.$bp-sp) {
-    display: none;
+    display: none!important;
   }
 }
 // タブレット スマホのみ

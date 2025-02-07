@@ -13,30 +13,25 @@ const mvLader = document.querySelector("#mv-lader");
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    document.querySelector(".mv-img-product").classList.add("is-active");
-
     gsap.utils.toArray('.product').forEach((product, i) => {
         gsap.set(product, {
             opacity: 0,
             y: 50
         });
-
         ScrollTrigger.create({
             trigger: product,
             start: 'top 80%',
             once: true,
+            markers: true,
             onEnter: () => {
                 gsap.to(product, {
                     opacity: 1,
                     y: 0,
-                    duration: 0.8,
-                    delay: i * 0.15,
                     ease: 'power2.out'
                 });
             }
         });
     });
-
 
     // MVアニメーション
     tl.from(mvCopy, { opacity: 0, x: -10, duration: .2 });
@@ -44,11 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     tl.from(mvSubTitle, { height: 0, duration: .2, });
     tl.from(mvLader, { opacity: 0 });
 
-    tl.add(() => mvProduct.classList.add("is-active"))
+    tl.add(() => mvProduct.classList.add("is-active"), 0)
         .to(mvCopy, { opacity: 1, x: 0 }, "-=0.5")
         .to(mvTitle, { opacity: 1, x: 0 }, "-=0.3")
         .to(mvSubTitle, { height: "auto", ease: "expo.in" }, "-=0.5")
         .to(mvLader, { opacity: 1, duration: .3 }, "-=0.1")
+
 
     // YouTubeのIframe API の読み込み
     function loadYouTubeAPI() {
@@ -72,8 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        console.log('Creating player with video ID:', videoId);
-
         // プレイヤーの作成
         new YT.Player(movieWrap, {
             videoId: videoId,
@@ -87,23 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 playsinline: 1
             },
             events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange,
                 'onError': function (event) {
-                    console.error('YouTube Player Error:', event);
+                    console.error('YouTube Playerエラー:', event);
                 }
             }
         });
-    }
-
-    // プレイヤーの準備完了時
-    function onPlayerReady(event) {
-        console.log('Player is ready');
-    }
-
-    // プレイヤーの状態変更時
-    function onPlayerStateChange(event) {
-        console.log('Player state changed:', event.data);
     }
 
     // APIの準備完了時のコールバック

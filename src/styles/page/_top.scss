@@ -23,6 +23,10 @@
 	.section {
 		padding: 7rem 0;
 
+		@include g.max-screen(g.$bp-sp) {
+			padding: 4rem 0;
+		}
+
 		&__header {
 			display: flex;
 			justify-content: space-between;
@@ -32,6 +36,7 @@
 			font-weight: bold;
 			@include g.max-screen(g.$bp-sp) {
 				flex-direction: column;
+				margin-bottom: 2.5rem;
 			}
 		}
 
@@ -39,23 +44,59 @@
 			text-align: right;
 			font-size: 2.3rem;
 			font-weight: bold;
+
+			@include g.max-screen(g.$bp-sp) {
+				text-align: center;
+				font-size: 2.2rem;
+				white-space: nowrap;
+			}
 		}
 	}
 
 	.section-bg {
 		// background-image: url(../img/bg02.svg), url(../img/bg02.svg);
-		background-image: url(../img/bg.png), url(../img/bg.png);
-		background-size: 30rem 20rem;
-		background-position:
-			0 0,
-			15rem 10rem;
-		background-repeat: repeat;
+		overflow: hidden;
 		position: relative;
+		&::after {
+			content: "";
+			width: 400%;
+			height: 400%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(-30deg);
+			background-image: url(../img/bg-logo.png), url(../img/bg-logo.png);
+			background-size: 30rem 20rem;
+			background-position:
+				0 0,
+				15rem 10rem;
+			background-repeat: repeat;
+			z-index: -1;
+			@include g.max-screen(g.$bp-sp) {
+				width: 1000%;
+				transform: translate(-50%, -50%) rotate(-20deg);
+				background-size: 20rem 15rem;
+				background-position:
+					0 0,
+					10rem 7.5rem;
+			}
+		}
 	}
 
 	.flex-wrap {
 		display: flex;
 		gap: 3rem;
+		position: relative;
+
+		.wrap {
+			width: 22rem;
+			@media screen and (max-width: 1200px) {
+				width: g.vw-pc(220, 1200);
+			}
+			@include g.max-screen(g.$bp-sp) {
+				width: 100%;
+			}
+		}
 	}
 
 	.mv {
@@ -143,7 +184,8 @@
 			@include g.max-screen(g.$bp-sp) {
 				width: 100%;
 				flex-direction: column;
-				gap: 2rem;
+				gap: 7rem;
+				margin-bottom: 4rem;
 			}
 		}
 
@@ -153,7 +195,10 @@
 			font-weight: bold;
 
 			@include g.max-screen(g.$bp-sp) {
-				width: 100%;
+				width: 80%;
+				margin: 0 auto;
+				line-height: 2;
+				font-size: 1.7rem;
 			}
 		}
 
@@ -162,6 +207,10 @@
 
 			@include g.max-screen(g.$bp-sp) {
 				width: 100%;
+
+				img {
+					width: 100%;
+				}
 			}
 		}
 
@@ -172,6 +221,8 @@
 			@include g.max-screen(g.$bp-sp) {
 				flex-direction: column;
 				gap: 1.5rem;
+				width: 80%;
+				margin: 0 auto;
 			}
 		}
 
@@ -188,14 +239,15 @@
 		border-radius: 10px;
 		background: #fff;
 		display: flex;
+		justify-content: space-between;
 		overflow: hidden;
 		gap: 1rem;
 		margin-bottom: 2rem;
 		opacity: 0;
 		transform: translateY(30px);
 		transition:
-			opacity 0.5s ease-out,
-			transform 0.5s ease-out;
+			opacity 0.4s ease-out,
+			transform 0.4s ease-out;
 
 		&.is-visible {
 			opacity: 1;
@@ -204,7 +256,7 @@
 
 		@include g.max-screen(g.$bp-sp) {
 			flex-direction: column;
-			padding: 2rem;
+			padding: 1rem 2.5rem 2rem;
 		}
 
 		&:last-of-type {
@@ -212,7 +264,7 @@
 		}
 
 		&__wrap {
-			width: 45%;
+			width: 49%;
 			position: relative;
 			z-index: 2;
 			@include g.max-screen(g.$bp-sp) {
@@ -226,11 +278,22 @@
 			margin-bottom: 2rem;
 			margin-top: 3rem;
 			font-weight: bold;
+
+			@include g.max-screen(g.$bp-sp) {
+				flex-direction: column;
+				align-items: normal;
+				margin-top: 0;
+			}
 		}
 
 		&__ttl {
 			font-size: 4.8rem;
 			margin-right: 3rem;
+
+			@include g.max-screen(g.$bp-sp) {
+				margin-right: 0;
+				line-height: 1.5;
+			}
 		}
 
 		&__text {
@@ -238,8 +301,14 @@
 			padding-left: 1.7rem;
 			border-left: 1px solid #2d2d2d;
 			white-space: nowrap;
+			line-height: 1.5;
 			span {
 				font-size: 1.2rem;
+			}
+
+			@include g.max-screen(g.$bp-sp) {
+				border: none;
+				padding-left: 0;
 			}
 		}
 
@@ -247,6 +316,10 @@
 			display: flex;
 			gap: 1rem;
 			margin-bottom: 1.5rem;
+			@include g.max-screen(g.$bp-sp) {
+				gap: 0.7rem;
+				margin-bottom: 2rem;
+			}
 			li {
 				display: inline-block;
 				border-radius: 5px;
@@ -256,6 +329,11 @@
 				width: 10rem;
 				text-align: center;
 				padding: 0.7rem 0;
+
+				@include g.max-screen(g.$bp-sp) {
+					width: calc((100% - 1.4rem) * 1 / 3);
+					line-height: 1.5;
+				}
 			}
 		}
 
@@ -287,7 +365,10 @@
 			font-size: 2.2rem;
 			line-height: 1.5;
 			@include g.max-screen(g.$bp-sp) {
-				width: 100%;
+				width: 13.4rem;
+				position: absolute;
+				right: 0;
+				bottom: 0;
 			}
 		}
 
@@ -296,6 +377,19 @@
 
 			&.label02 {
 				width: 7.7rem;
+			}
+		}
+
+		&--04 {
+			@include g.max-screen(g.$bp-sp) {
+				.wrap {
+					width: 100%;
+				}
+				.product__right {
+					position: absolute;
+					bottom: 3rem;
+					right: 0;
+				}
 			}
 		}
 	}
@@ -317,7 +411,13 @@
 		}
 
 		@include g.max-screen(g.$bp-sp) {
-			width: 100%;
+			width: 12.5rem;
+			position: relative;
+			margin-bottom: 3rem;
+		}
+
+		&__heading {
+			line-height: 1.3;
 		}
 
 		&__text {
@@ -336,6 +436,14 @@
 
 		&__asterisk {
 			font-size: 1.1rem;
+
+			@include g.max-screen(g.$bp-sp) {
+				position: absolute;
+				bottom: -1.5rem;
+				left: 50%;
+				transform: translate(-50%, 50%);
+				white-space: nowrap;
+			}
 		}
 	}
 
@@ -346,6 +454,7 @@
 
 		@include g.max-screen(g.$bp-sp) {
 			gap: 1.5rem;
+			grid-template-columns: 1fr;
 		}
 
 		&__item {
@@ -354,16 +463,49 @@
 				width: g.vw-pc(220, 1200);
 			}
 			@include g.max-screen(g.$bp-sp) {
-				width: auto;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+
+		&__wrap {
+			@include g.max-screen(g.$bp-sp) {
+				flex-wrap: wrap;
+
+				.detail-card__img {
+					width: 13.5rem;
+				}
+				.detail-card__text {
+					width: 100%;
+					margin-top: 1.5rem;
+				}
 			}
 		}
 
 		&__img {
 			margin-bottom: 1.5rem;
+
+			@include g.max-screen(g.$bp-sp) {
+				width: 15rem;
+				margin-bottom: 0;
+			}
 		}
 
 		&__text {
 			font-size: 1.2rem;
+
+			span {
+				display: block;
+			}
+
+			@include g.max-screen(g.$bp-sp) {
+				width: 11rem;
+
+				span {
+					font-weight: bold;
+				}
+			}
 		}
 	}
 
@@ -376,6 +518,8 @@
 
 		@include g.max-screen(g.$bp-sp) {
 			width: 100%;
+			margin-bottom: 4rem;
+			margin-top: -4rem;
 		}
 
 		&__item {
@@ -389,7 +533,14 @@
 				height: g.vw-pc(420, 1200);
 			}
 			@include g.max-screen(g.$bp-sp) {
-				height: 20rem;
+				height: 44rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+
+				img {
+					height: 100%;
+				}
 			}
 		}
 
@@ -408,6 +559,7 @@
 			text-align: center;
 			padding-bottom: 0.5rem;
 			margin-bottom: 0.5rem;
+			font-size: 1.6rem;
 		}
 	}
 
@@ -415,6 +567,11 @@
 		border: 1px solid #c7161d;
 		border-radius: 5px;
 		padding: 1rem 2rem 2.5rem;
+
+		@include g.max-screen(g.$bp-sp) {
+			display: block;
+			padding: 1rem 2rem 2rem;
+		}
 		&__heading {
 			color: #c7161d;
 			text-align: center;
@@ -425,6 +582,9 @@
 
 			@media screen and (max-width: 1200px) {
 				font-size: g.vw-pc(15, 1200);
+			}
+			@include g.max-screen(g.$bp-sp) {
+				font-size: 1.5rem;
 			}
 		}
 		&__cards {
@@ -457,9 +617,17 @@
 		}
 
 		&__heading {
+			@include g.max-screen(g.$bp-sp) {
+				margin-bottom: 4rem;
+			}
 			img {
 				width: 33.4rem;
 				height: 7.3rem;
+
+				@include g.max-screen(g.$bp-sp) {
+					width: 21.4rem;
+					height: 4.7rem;
+				}
 			}
 		}
 	}
@@ -477,15 +645,26 @@
 		}
 
 		&__heading {
+			@include g.max-screen(g.$bp-sp) {
+				margin-bottom: 4rem;
+			}
 			img {
 				width: 25.1rem;
 				height: 7.3rem;
+
+				@include g.max-screen(g.$bp-sp) {
+					width: 16rem;
+					height: 4.7rem;
+				}
 			}
 		}
 	}
 	.standard {
 		padding-bottom: 4rem;
 		position: relative;
+		@include g.max-screen(g.$bp-sp) {
+			padding-bottom: 2rem;
+		}
 		&::before {
 			content: "";
 			position: absolute;
@@ -498,15 +677,25 @@
 		}
 
 		&__heading {
+			@include g.max-screen(g.$bp-sp) {
+				margin-bottom: 4rem;
+			}
 			img {
 				width: 45.1rem;
 				height: 7.3rem;
+				@include g.max-screen(g.$bp-sp) {
+					width: 28.9rem;
+					height: 4.7rem;
+				}
 			}
 		}
 
 		.pagetop {
 			text-align: center;
 			margin-top: 4rem;
+			@include g.max-screen(g.$bp-sp) {
+				margin-top: 2rem;
+			}
 			span {
 				font-weight: bold;
 				font-size: 1.5rem;
@@ -544,12 +733,18 @@
 	}
 
 	.contact {
+		.l-inner {
+			@include g.max-screen(g.$bp-sp) {
+				width: 90%;
+			}
+		}
 		&__heading {
 			width: 40rem;
 			margin: 0 auto 7rem;
 
 			@include g.max-screen(g.$bp-sp) {
 				width: 100%;
+				margin-bottom: 3.5rem;
 			}
 		}
 
@@ -570,6 +765,10 @@
 				padding: 1.8rem 0;
 				font-size: 1.9rem;
 				transition: 0.2s;
+
+				@include g.max-screen(g.$bp-sp) {
+					padding: 1.5rem 0;
+				}
 
 				&:hover {
 					color: #2d2d2d;
@@ -593,6 +792,9 @@
 		align-items: center;
 		justify-content: center;
 		padding: 6rem 0;
+		@include g.max-screen(g.$bp-sp) {
+			padding: 2rem 0 4rem;
+		}
 		&__logo {
 			width: 11.8rem;
 		}
