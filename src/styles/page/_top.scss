@@ -224,7 +224,7 @@
 			@include g.max-screen(g.$bp-sp) {
 				width: 100%;
 				flex-direction: column;
-				gap: 7rem;
+				gap: 4rem;
 				margin-bottom: 4rem;
 			}
 		}
@@ -238,7 +238,7 @@
 				width: 80%;
 				margin: 0 auto;
 				line-height: 2;
-				font-size: 1.7rem;
+				font-size: 1.3rem;
 			}
 		}
 
@@ -573,7 +573,7 @@
 				height: g.vw-pc(420, 1200);
 			}
 			@include g.max-screen(g.$bp-sp) {
-				height: 44rem;
+				height: 30rem;
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-end;
