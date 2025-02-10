@@ -176,6 +176,7 @@
 			background-image: url("../img/mv_bg_sp.jpg");
 			&__logo {
 				width: 8rem;
+				top: 6rem;
 			}
 			&__title {
 				display: none;
@@ -185,13 +186,13 @@
 			}
 			&__lader {
 				width: 120%;
-				bottom: 0;
+				bottom: -1rem;
 				right: 0;
 			}
 			&__product {
 				flex-direction: column;
 				left: 8%;
-				top: 4rem;
+				top: 6rem;
 			}
 			.mv-img-product {
 				width: 20rem;
